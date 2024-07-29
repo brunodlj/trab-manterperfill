@@ -3,6 +3,7 @@ session_start();
 if (isset($_POST['submit']) && !empty($_POST['nome']) && !empty($_POST['senha'])) {
     include('conecta.php');
     
+    $conexao=conectar();
     $nome = $_POST['nome'];
     $senha = $_POST['senha'];
 

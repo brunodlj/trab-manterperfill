@@ -1,6 +1,6 @@
 <?php
 
-$congig = [
+$config = [
     'host'=> 'localhost',
     'user'=> 'root',
     'pass'=> '',

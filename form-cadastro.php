@@ -2,6 +2,7 @@
 
 if (isset($_POST['submit'])) {
     include("conecta.php");
+    $conexao=conectar();
     
     $nome = $_POST['nome'];
     $email = $_POST['email'];
@@ -9,6 +10,7 @@ if (isset($_POST['submit'])) {
 
     $sql = "INSERT INTO `usuario`(`nome` ,`email`, `senha`) VALUES ('$nome','$email','$senha')";
     $resultado = mysqli_query($conexao, $sql);
+
     echo "<h1> Cadastro feito com sucesso!</h1>";
 }
 ?>
