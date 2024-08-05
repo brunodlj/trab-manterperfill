@@ -35,18 +35,24 @@ if ($recuperar == null) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova</title>
+    <title>Redefinir Senha</title>
+    
 </head>
 
 <body>
-    <form action="salvar-nova-senha.php" method="post">
-        <input type="hidden" name="email" value="<?= $email ?>">
-        <input type="hidden" name="token" value="<?= $token ?>">
-        Email: <?= $email ?><br>
-        <label> Senha: <input type="password" name="senha"></label><br>
-        <label> Repita a Senha: <input type="password" name="repetirSenha"></label><br>
-        <input type="submit" value="Salvar nova senha">
-    </form>
+    <div class="container">
+        <h1>Redefinir Senha</h1>
+        <form action="salvar-nova-senha.php" method="post">
+            <input type="hidden" name="email" value="<?= $email ?>">
+            <input type="hidden" name="token" value="<?= $token ?>">
+            <p>Email: <?= $email ?></p>
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" id="senha" required> <br> <br>
+            <label for="repetirSenha">Repita a Senha:</label>
+            <input type="password" name="repetirSenha" id="repetirSenha" required> <br><br>
+            <input type="submit" value="Salvar nova senha">
+        </form>
+    </div>
 </body>
 
 </html>
