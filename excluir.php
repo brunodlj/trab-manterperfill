@@ -7,7 +7,7 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['senha'])) {
     exit();
 }
 $email = $_SESSION['email'];
-$conexao = mysqli_connect("localhost", "root", "", "trabalho_topicos");
+$conexao = mysqli_connect("localhost", "root", "", "trab-manter");
 
 if (!$conexao) {
     die("Falha na conexão: " . mysqli_connect_error());
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     } else {
         echo "A exclusão da conta foi cancelada.";
-        echo "<a href='perfil.php'>Voltar ao perfil</a>";
+        echo "<a href='pagina_inicial.php'>Voltar ao perfil</a>";
     }
     mysqli_close($conexao);
     exit();
@@ -40,59 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apagar Conta</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .container {
-            max-width: 400px;
-            margin: 20px;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        form {
-            margin-bottom: 20px;
-        }
-
-        .button-group {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .button-group button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .confirm-button {
-            background-color: #e74c3c;
-            color: white;
-        }
-
-        .cancel-button {
-            background-color: #2ecc71;
-            color: white;
-        }
-    </style>
+   
 </head>
 
 <body>
@@ -105,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <button type="submit" name="confirm" value="no" class="cancel-button">Não, cancelar</button>
             </div>
         </form>
-        <a href="perfil.php">Voltar ao perfil</a>
+        <a href="pagina_inicial.php">Voltar ao perfil</a>
     </div>
 </body>
 

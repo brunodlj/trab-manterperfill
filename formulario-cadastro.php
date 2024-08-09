@@ -10,10 +10,22 @@ if (isset($_POST['submit'])) {
         $email = $_POST['email'];
         $senha = $_POST['senha'];
 
-        $sql = "INSERT INTO `usuario`(`nome`, `email`, `senha`) VALUES ('$nome','$email','$senha')";
-        $resultado = mysqli_query($conexao, $sql);
+        // Verifica se o email já está cadastrado
+        $sqlCheck = "SELECT * FROM `usuario` WHERE `email`='$email'";
+        $resultCheck = mysqli_query($conexao, $sqlCheck);
 
-        $message = "<h1>Cadastro feito com sucesso!</h1>";
+        if (mysqli_num_rows($resultCheck) > 0) {
+            $message = "<h1>O email já foi cadastrado!</h1>";
+        } else {
+            $sql = "INSERT INTO `usuario`(`nome`, `email`, `senha`) VALUES ('$nome','$email','$senha')";
+            $resultado = mysqli_query($conexao, $sql);
+
+            if ($resultado) {
+                $message = "<h1>Cadastro feito com sucesso!</h1>";
+            } else {
+                $message = "<h1>Erro ao cadastrar. Tente novamente!</h1>";
+            }
+        }
     } else {
         $message = "<h1>Preencha os campos para efetuar seu cadastro!</h1>";
     }
@@ -21,13 +33,13 @@ if (isset($_POST['submit'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-   
+    
 </head>
 
 <body>

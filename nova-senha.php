@@ -47,9 +47,9 @@ if ($recuperar == null) {
             <input type="hidden" name="token" value="<?= $token ?>">
             <p>Email: <?= $email ?></p>
             <label for="senha">Senha:</label>
-            <input type="password" name="senha" id="senha" required> <br> <br>
+            <input type="password" name="senha" id="senha" required>
             <label for="repetirSenha">Repita a Senha:</label>
-            <input type="password" name="repetirSenha" id="repetirSenha" required> <br><br>
+            <input type="password" name="repetirSenha" id="repetirSenha" required>
             <input type="submit" value="Salvar nova senha">
         </form>
     </div>

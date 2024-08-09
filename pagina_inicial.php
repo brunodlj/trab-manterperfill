@@ -1,5 +1,12 @@
 <?php
 session_start();
+if (!isset($_SESSION['email']) || !isset($_SESSION['senha'])) {
+    unset($_SESSION['email']);
+    unset($_SESSION['senha']);
+    header('Location: index.php');
+    exit();
+}
+
 $email = $_SESSION['email'];
 $conexao = mysqli_connect("localhost", "root", "", "trab-manter");
 
@@ -27,32 +34,34 @@ $imagemPadrao = 'up/default.jpg';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Principal</title>
+   
 </head>
 
 <body>
-    <p>Você está logado! <?php echo ($usuario['nome']); ?></p>
-    <p>Seu email é: <?php echo ($_SESSION['email']); ?></p>
-    <table>
-        <tbody>
-            <?php
-            $arquivo = $usuario['foto'];
-            $caminhoUploads = 'up/';
-            $caminhoArquivo = $caminhoUploads . $arquivo;
+    <div class="container">
+        <h1>Bem vindo(a), <?php echo $usuario['nome']; ?>!</h1>
+        <p>Seu email é: <?php echo $usuario['email']; ?></p>
+        <table>
+            <tbody>
+                <?php
+                $arquivo = $usuario['foto'];
+                $caminhoUploads = 'up/';
+                $caminhoArquivo = $caminhoUploads . $arquivo;
 
-            if (empty($arquivo) || !file_exists($caminhoArquivo)) {
-                $caminhoArquivo = $imagemPadrao;
-            } else {
-                $caminhoArquivo = $caminhoArquivo;
-            }
+                if (empty($arquivo) || !file_exists($caminhoArquivo)) {
+                    $caminhoArquivo = $imagemPadrao;
+                }
 
-            echo "<tr>";
-            echo "<td><img src='$caminhoArquivo' width='100px' height='100px'></td>";
-            echo "<td><a href='alterar?Nome_arquivo={$usuario['foto']}'>Alterar foto de perfil</a></td>";
-            ?>
-        </tbody>
-    </table>
-    <a href="sair.php"> Sair </a><br>
-    <a href="formeditar.php?"> Editar conta</a> <br>
-    <a href="excluir.php"> Apagar conta</a> <br>
-    
+                echo "<tr>";
+                echo "<td><img src='" . $caminhoArquivo . "' width='100px' height='100px'></td>";
+                echo "<td><a href='alterar.php?Nome_arquivo=" . $usuario["foto"] . "'>Alterar foto de perfil</a></td>";
+                ?>
+            </tbody>
+        </table>
+        <a href="sair.php">Sair</a>
+        <a href="excluir.php?id_usuario=<?php echo $usuario["id_usuario"]?>">Apagar conta</a>
+        <a href="formeditar.php?email=<?php echo $usuario["email"]; ?>">Editar conta</a>
+    </div>
 </body>
+
+</html>

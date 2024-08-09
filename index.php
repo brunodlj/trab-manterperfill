@@ -21,14 +21,14 @@
         <h1>Login</h1>
         <form action="teste.php" method="POST">
             <label for="nome">Insira seu e-mail:</label>
-            <input type="text" name="email" id="nome" required> <br><br>
+            <input type="text" name="email" id="nome" required>
 
             <label for="senha">Insira sua senha:</label>
-            <input type="password" name="senha" id="senha" required><br><br>
+            <input type="password" name="senha" id="senha" required>
 
-            <input type="submit" name="submit" value="Enviar"> <br> <br>
+            <input type="submit" name="submit" value="Enviar">
 
-            <a href="formulario-cadastro.php">Cadastre-se</a><br>
+            <a href="formulario-cadastro.php">Cadastre-se</a>
             <a href="formulario-senha.php">Recupere sua senha!</a>
         </form>
     </div>

@@ -15,7 +15,8 @@ $usuario = mysqli_fetch_assoc($resultado);
 if ($usuario === null) {
     echo '<div class= "alert alert danger" role="alert"> 
     <h2>Email não cadastrado!</h2><br>
-    Faça o cadastro e em seguida realize o login. </div>';
+    Faça o cadastro e em seguida realize o login. </div>'
+    ;
     die();
 }
 //gerar um token unico 
@@ -58,7 +59,7 @@ try {
     $mail -> Body = 'Olá <br> 
             Você solicitou a recuperação da sua conta no nosso sistema.
             Para isso, clique no link abaixo para realizar a troca de senha:<br>
-            <a href = "'. $_SERVER['SERVER_NAME'].'/Trab-manterperfill/nova-senha.php?email='.$usuario['email'] . 
+            <a href = "'. $_SERVER['SERVER_NAME'].'/trab-manterperfill/nova-senha.php?email='.$usuario['email'] . 
             '&token='.$token . '">Clique aqui para recuperar o acesso a sua conta!</a><br><br>
             Atenciosamente <br>
             Equipe do sistema...';

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Recuperação de Senha</title>
-   
+    
 </head>
 
 <body>
@@ -17,7 +17,7 @@
         </p>
         <form action="recuperar.php" method="post">
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email" required><br><br>
+            <input type="email" name="email" id="email" required>
             <input type="submit" value="Enviar e-mail de recuperação">
         </form>
     </div>
